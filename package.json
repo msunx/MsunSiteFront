@@ -17,6 +17,7 @@
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.5",
     "push-dir": "^0.4.1",
+    "rollup-plugin-copy": "^3.5.0",
     "vite": "^5.3.1"
   }
 }
