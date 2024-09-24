@@ -12,7 +12,7 @@ export default defineConfig({
       // 显示日志
       verbose: true,
       targets: [
-        { src: 'public/404.html', dest: 'dist' }
+        { src: 'dist/index.html', dest: 'dist' }
       ]
     })
   ],
