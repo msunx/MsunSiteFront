@@ -16,6 +16,7 @@ html, body {
   height: 100%;
   overflow: hidden;
   touch-action: none; /* 禁用触控板左右滑动 */
+  width: 100%; /* 确保宽度为100% */
 }
 
 body {
