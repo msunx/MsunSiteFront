@@ -4,7 +4,7 @@
 
 <template>
   <div class="greetings">
-    <h1>mSun's World</h1>
+    <h1>MSun's World</h1>
   </div>
 </template>
 
