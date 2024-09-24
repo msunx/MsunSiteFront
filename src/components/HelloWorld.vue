@@ -9,14 +9,13 @@
 </template>
 
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap');
+@import url('https://at.alicdn.com/t/font_8d5l8fzk5b87iudi.css'); /* 替换为阿里巴巴矢量图标库的字体 */
 
 html, body {
   margin: 0;
   height: 100%;
   overflow: hidden;
   touch-action: none; /* 禁用触控板左右滑动 */
-  width: 100%; /* 确保宽度为100% */
 }
 
 body {
@@ -37,7 +36,7 @@ body {
 }
 
 h1 {
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Noto Sans', sans-serif; /* 使用新的字体 */
   font-weight: 700;
   font-size: 4rem;
   background: linear-gradient(90deg, #ff7e5f, #feb47b, #86a8e7, #91eae4);
