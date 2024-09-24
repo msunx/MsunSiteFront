@@ -9,10 +9,10 @@ export default defineConfig({
   plugins: [
     vue(),
     copy({
-      // 显示日志
+      hook: 'closeBundle',
       verbose: true,
       targets: [
-        { src: 'dist/index.html', dest: 'dist' }
+        { src: 'dist/index.html', dest: 'dist', rename: '404.html' }
       ]
     })
   ],
