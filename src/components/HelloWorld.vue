@@ -4,18 +4,24 @@
 
 <template>
   <div class="greetings">
-    <h1>MSun's World</h1>
+    <h1>
+      <img src="/favicon.svg" alt="icon" class="icon" />
+      <span class="title">MSun's World</span> <!-- 添加 span 包裹标题 -->
+    </h1>
   </div>
 </template>
 
 <style scoped>
-@import url('https://at.alicdn.com/t/font_8d5l8fzk5b87iudi.css'); /* 替换为阿里巴巴矢量图标库的字体 */
+@import url('https://at.alicdn.com/t/font_8d5l8fzk5b87iudi.css');
+/* 替换为阿里巴巴矢量图标库的字体 */
 
-html, body {
+html,
+body {
   margin: 0;
   height: 100%;
   overflow: hidden;
-  touch-action: none; /* 禁用触控板左右滑动 */
+  touch-action: none;
+  /* 禁用触控板左右滑动 */
 }
 
 body {
@@ -36,24 +42,33 @@ body {
 }
 
 h1 {
-  font-family: 'Noto Sans', sans-serif; /* 使用新的字体 */
-  font-weight: 700;
+  font-family: 'Noto Sans', sans-serif;
+  /* 使用新的字体 */
   font-size: 4rem;
+  /* 设置字体大小 */
   background: linear-gradient(90deg, #ff7e5f, #feb47b, #86a8e7, #91eae4);
+  /* 设置背景渐变色 */
   background-size: 200% 200%;
+  /* 设置背景大小 */
   -webkit-background-clip: text;
+  /* 仅对文本进行背景裁剪 */
   -webkit-text-fill-color: transparent;
+  /* 使文本填充颜色透明 */
   animation: textGradient 5s ease infinite;
+  /* 应用文本渐变动画 */
   text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+  /* 设置文本阴影 */
 }
 
 @keyframes gradient {
   0% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
+
   100% {
     background-position: 0% 50%;
   }
@@ -63,11 +78,28 @@ h1 {
   0% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
+
   100% {
     background-position: 0% 50%;
   }
+}
+
+.icon {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  position: relative;
+  top: 2px;
+  right: 2.5px;
+  opacity: 0.7;
+  /* 设置透明度 */
+}
+
+.title {
+  font-weight: 700;
 }
 </style>
