@@ -45,7 +45,7 @@ export default {
     methods: {
         async fetchDakaData() {
             try {
-                const response = await fetch(`http://${this.ip}:8728/notion/daka/get?title=${this.title}`);
+                const response = await fetch(`https://${this.ip}:8728/notion/daka/get?title=${this.title}`);
                 if (!response.ok) {
                     throw new Error('网络响应不正常');
                 }
@@ -79,7 +79,7 @@ export default {
         },
         async sendPostRequest(dateStr, isActive) {
             try {
-                await fetch(`http://${this.ip}:8728/notion/daka/do`, {
+                await fetch(`https://${this.ip}:8728/notion/daka/do`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
