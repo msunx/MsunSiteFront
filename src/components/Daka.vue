@@ -170,7 +170,7 @@ h1 {
 }
 
 .daka-count {
-    font-size: 1vw;
+    font-size: 1.5vw;
     /* 使用vw单位使文字大小随屏幕宽度变化 */
     font-weight: 400;
     margin-left: 2.9vw;
