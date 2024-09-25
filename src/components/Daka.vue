@@ -27,7 +27,8 @@ export default {
             required: true
         },
         ip: {
-            type: String
+            type: String,
+            required: true
         }
     },
     data() {
