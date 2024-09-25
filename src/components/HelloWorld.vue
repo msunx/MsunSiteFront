@@ -95,7 +95,7 @@ h1 {
   position: relative;
   top: 2px;
   right: 2.5px;
-  opacity: 0.7;
+  opacity: 0.8;
   /* 设置透明度 */
 }
 
