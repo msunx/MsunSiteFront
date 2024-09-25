@@ -6,7 +6,9 @@
   <div class="greetings">
     <h1>
       <img src="/favicon.svg" alt="icon" class="icon" />
-      <span class="title">MSun's World</span> <!-- 添加 span 包裹标题 -->
+      <span class="title">
+        MSun<span class="highlight">'</span>s Wor<span class="highlight">l</span>d
+      </span> 
     </h1>
   </div>
 </template>
@@ -46,16 +48,6 @@ h1 {
   /* 使用新的字体 */
   font-size: 4rem;
   /* 设置字体大小 */
-  background: linear-gradient(90deg, #ff7e5f, #feb47b, #86a8e7, #91eae4);
-  /* 设置背景渐变色 */
-  background-size: 200% 200%;
-  /* 设置背景大小 */
-  -webkit-background-clip: text;
-  /* 仅对文本进行背景裁剪 */
-  -webkit-text-fill-color: transparent;
-  /* 使文本填充颜色透明 */
-  animation: textGradient 5s ease infinite;
-  /* 应用文本渐变动画 */
   text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
   /* 设置文本阴影 */
 }
@@ -95,11 +87,14 @@ h1 {
   position: relative;
   top: 2px;
   right: 2.5px;
-  opacity: 0.8;
-  /* 设置透明度 */
 }
 
 .title {
-  font-weight: 700;
+  font-weight: 800;
+}
+
+.highlight {
+  font-weight: 800;
+  color: #ef152b;
 }
 </style>
