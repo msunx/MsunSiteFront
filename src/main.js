@@ -19,7 +19,7 @@ const routes = [
     {
         path: '/MsunSiteFront/notion/daka',
         component: Daka,
-        props: route => ({ title: route.query.title }) // 通过路由参数传递 title
+        props: route => ({ title: route.query.title, ip: route.query.ip })
     },
     {
         path: '/MsunSiteFront/notion/countdown',
