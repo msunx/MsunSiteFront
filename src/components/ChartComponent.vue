@@ -86,7 +86,7 @@
 
     const getDatabase = async () => {
         try {
-            const response = await fetch(`http://${ip}:8728/notion/chart/database/get?id=${id}&x=${x}&y=${y}`);
+            const response = await fetch(`http://127.0.0.1:8728/notion/chart/database/get?id=${id}&x=${x}&y=${y}`);
             if (!response.ok) {
                 throw new Error('Network response was not ok');
             }
