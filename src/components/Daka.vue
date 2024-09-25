@@ -189,7 +189,7 @@ h1 {
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(1.25vw, 1.5fr));
+    grid-template-columns: repeat(auto-fit, minmax(1.28vw, 1.5fr));
     /* 自适应列数 */
     gap: 0.25vw;
     /* 使用vw单位设置间隙 */
