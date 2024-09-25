@@ -170,7 +170,7 @@ h1 {
 }
 
 .daka-count {
-    font-size: 1.5vw;
+    font-size: 1.4vw;
     /* 使用vw单位使文字大小随屏幕宽度变化 */
     font-weight: 400;
     margin-left: 2.9vw;
@@ -189,7 +189,7 @@ h1 {
 
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(1.2vw, 1.5fr));
+    grid-template-columns: repeat(auto-fit, minmax(1.25vw, 1.5fr));
     /* 自适应列数 */
     gap: 0.25vw;
     /* 使用vw单位设置间隙 */
