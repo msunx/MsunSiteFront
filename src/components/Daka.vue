@@ -29,6 +29,10 @@ export default {
         ip: {
             type: String,
             required: true
+        },
+        id: {
+            type: String,
+            required: true
         }
     },
     data() {
@@ -45,7 +49,7 @@ export default {
     methods: {
         async fetchDakaData() {
             try {
-                const response = await fetch(`/api/notion_daka?title=${this.title}`);
+                const response = await fetch(`/api/notion_daka?title=${this.title}&id=${this.id}`);
                 if (!response.ok) {
                     throw new Error('网络响应不正常');
                 }
