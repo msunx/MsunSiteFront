@@ -1,3 +1,3 @@
 export function GET(request) {
-    return new Response(`Hello from xxxx`);
+    return new Response({ data: 'hahaha' });
 }
