@@ -83,7 +83,8 @@ export default {
         },
         async sendPostRequest(dateStr, isActive) {
             try {
-                await fetch(`https://${this.ip}:8728/notion/daka/do`, {
+                // await fetch(`https://${this.ip}:8728/notion/daka/do`, {
+                await fetch(`/api/notion_do_daka`, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
@@ -91,6 +92,7 @@ export default {
                     body: JSON.stringify({
                         date: dateStr,
                         title: this.title,
+                        id: this.id,
                         isActivate: isActive
                     }),
                 });
