@@ -1,3 +1,6 @@
 export function GET(request) {
-    return new Response({ data: 'hahaha' });
+    const data = {
+        'data': 'hahaha'
+    }
+    return new Response(JSON.stringify(data));
 }
