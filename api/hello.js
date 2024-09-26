@@ -27,7 +27,7 @@ export function GET(request) {
                 7.01
             ]
         },
-        "app": process.env.NOTION_API_KEY
+        "appx": process.env.NOTION_API_KEY
     }
     return new Response(JSON.stringify(data));
 }
