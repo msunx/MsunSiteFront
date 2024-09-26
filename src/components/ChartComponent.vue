@@ -19,8 +19,8 @@ const title = urlParams.get('title');
 const ip = urlParams.get('ip');
 
 const renderChart = async () => {
-    const databaseData = await getDatabase();
-    await getDatabaseV2();
+    // const databaseData = await getDatabase();
+    const databaseData = await getDatabaseV2();
     const ctx = document.getElementById('lineChart').getContext('2d');
     const labels = databaseData['x'];
 
