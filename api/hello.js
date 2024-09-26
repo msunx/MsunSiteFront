@@ -26,7 +26,8 @@ export function GET(request) {
                 1.2,
                 7.01
             ]
-        }
+        },
+        "app": process.env.APP_ENV
     }
     return new Response(JSON.stringify(data));
 }
