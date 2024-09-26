@@ -9,20 +9,20 @@ import Countdown from './components/Countdown.vue';
 
 const routes = [
     {
-        path: '/MsunSiteFront',
+        path: '/',
         component: HelloWorld
     },
     {
-        path: '/MsunSiteFront/notion/chart',
+        path: '/notion/chart',
         component: ChartComponent
     },
     {
-        path: '/MsunSiteFront/notion/daka',
+        path: '/notion/daka',
         component: Daka,
         props: route => ({ title: route.query.title, ip: route.query.ip })
     },
     {
-        path: '/MsunSiteFront/notion/countdown',
+        path: '/notion/countdown',
         component: Countdown
     }
 ];
