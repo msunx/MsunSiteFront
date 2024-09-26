@@ -101,12 +101,11 @@ const getDatabase = async () => {
 
 const getDatabaseV2 = async () => {
     try {
-        const response = await fetch(`/api/hello`);
+        const response = await fetch(`/api/notion_chart?id=${id}&x=${x}&y=${y}`);
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
         const data = await response.json();
-        console.log(`hahaha: ${data}`);
         return data.data;
     } catch (error) {
         console.error('There was a problem with the fetch operation:', error);

@@ -10,6 +10,7 @@
     "deploy": "push-dir --dir=dist --branch=gh-pages --cleanup"
   },
   "dependencies": {
+    "@notionhq/client": "^2.2.15",
     "chart.js": "^4.4.4",
     "vue": "^3.4.29",
     "vue-router": "^4.4.5"
