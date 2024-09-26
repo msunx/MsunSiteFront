@@ -16,11 +16,9 @@ const id = urlParams.get('id');
 const x = urlParams.get('x');
 const y = urlParams.get('y');
 const title = urlParams.get('title');
-const ip = urlParams.get('ip');
 
 const renderChart = async () => {
-    // const databaseData = await getDatabase();
-    const databaseData = await getDatabaseV2();
+    const databaseData = await getDatabase();
     const ctx = document.getElementById('lineChart').getContext('2d');
     const labels = databaseData['x'];
 
@@ -86,20 +84,6 @@ const getColorByHash = (title) => {
 };
 
 const getDatabase = async () => {
-    try {
-        const response = await fetch(`https://${ip}:8728/notion/chart/database/get?id=${id}&x=${x}&y=${y}`);
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        const data = await response.json();
-        return data.data;
-    } catch (error) {
-        console.error('There was a problem with the fetch operation:', error);
-        throw error;
-    }
-};
-
-const getDatabaseV2 = async () => {
     try {
         const response = await fetch(`/api/notion_chart?id=${id}&x=${x}&y=${y}`);
         if (!response.ok) {
