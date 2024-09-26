@@ -105,7 +105,8 @@ const getDatabaseV2 = async () => {
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }
-        console.log(`hahaha: ${response}`);
+        const data = await response.json();
+        console.log(`hahaha: ${data}`);
         return data.data;
     } catch (error) {
         console.error('There was a problem with the fetch operation:', error);
