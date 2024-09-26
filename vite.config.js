@@ -5,7 +5,6 @@ import copy from 'rollup-plugin-copy'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/MsunSiteFront/',
   plugins: [
     vue(),
     copy({
