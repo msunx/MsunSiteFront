@@ -38,9 +38,10 @@ body {
   align-items: center;
   height: 100vh;
   width: 100vw;
-  background: linear-gradient(270deg, #a1c4fd, #c2e9fb, #a1c4fd, #c2e9fb);
+  /* background: linear-gradient(270deg, #a1c4fd, #c2e9fb, #a1c4fd, #c2e9fb); */
+  background: linear-gradient(270deg, #928ff9, #c2e9fb, #a1c4fd, #c2e9fb);
   background-size: 800% 800%;
-  animation: gradient 10s ease infinite;
+  animation: gradient 15s ease infinite;
 }
 
 h1 {
@@ -91,6 +92,7 @@ h1 {
 
 .title {
   font-weight: 800;
+  color: #0a0404;
 }
 
 .highlight {
