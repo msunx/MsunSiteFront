@@ -17,11 +17,5 @@
                 }
             ]
         }
-    ],
-    "crons": [
-        {
-            "path": "/api/cron_create_task",
-            "schedule": "*/30 * * * * *"
-        }
     ]
 }
