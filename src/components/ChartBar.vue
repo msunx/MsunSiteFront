@@ -15,6 +15,7 @@ Chart.register(...registerables, ChartDataLabels);
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get('id');
 const title = urlParams.get('title');
+const auth = urlParams.get('auth');
 
 const renderPieChart = async () => {
     const databaseData = await getDatabase();
@@ -85,7 +86,7 @@ const getColorByHash = (label, index) => {
 
 const getDatabase = async () => {
     try {
-        const response = await fetch(`/api/notion_pie?id=${id}`);
+        const response = await fetch(`/api/notion_pie?id=${id}&auth=${auth}`);
         if (!response.ok) {
             throw new Error('网络响应不正常');
         }
