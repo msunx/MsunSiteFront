@@ -14,20 +14,14 @@ Chart.register(...registerables, ChartDataLabels);
 
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get('id');
-const labelsParam = urlParams.get('labels');
-const dataParam = urlParams.get('data');
-// const title = urlParams.get('title');
-const title = '测试';
+const title = urlParams.get('title');
 
 const renderPieChart = async () => {
-    // const databaseData = await getDatabase();
+    const databaseData = await getDatabase();
     const ctx = document.getElementById('pieChart').getContext('2d');
-    // const labels = databaseData['labels'];
-    const labels = ['牛牛', '富途', '微信', '支付宝', '抖音', '快手'];
-    // const dataValues = databaseData['data'];
-    const dataValues = [1, 2, 3, 4, 5, 6];
-
-    const backgroundColors = labels.map((label,index) => getColorByHash(label,index));
+    const labels = databaseData['labels'];
+    const dataValues = databaseData['data'];
+    const backgroundColors = labels.map((label, index) => getColorByHash(label, index));
 
     const data = {
         labels: labels,
@@ -60,7 +54,9 @@ const renderPieChart = async () => {
                         size: 10 // 设置字体大小为10
                     },
                     formatter: (value, context) => {
-                        return context.chart.data.labels[context.dataIndex];
+                        const total = context.chart.data.datasets[0].data.reduce((sum, val) => sum + val, 0);
+                        const percentage = (value / total) * 100;
+                        return percentage >= 4 ? context.chart.data.labels[context.dataIndex] : '';
                     }
                 }
             }
@@ -68,7 +64,7 @@ const renderPieChart = async () => {
     });
 };
 
-const getColorByHash = (label,index) => {
+const getColorByHash = (label, index) => {
     const colors = [
         'rgba(255, 99, 132, 1)',
         'rgba(54, 162, 235, 1)',
@@ -82,7 +78,7 @@ const getColorByHash = (label,index) => {
 
 const getDatabase = async () => {
     try {
-        const response = await fetch(`/api/notion_pie_chart?id=${id}&labels=${labelsParam}&data=${dataParam}`);
+        const response = await fetch(`/api/notion_pie?id=${id}`);
         if (!response.ok) {
             throw new Error('网络响应不正常');
         }
