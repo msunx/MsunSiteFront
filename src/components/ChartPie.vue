@@ -27,7 +27,7 @@ const renderPieChart = async () => {
     // const dataValues = databaseData['data'];
     const dataValues = [1, 2, 3, 4, 5, 6];
 
-    const backgroundColors = labels.map(label => getColorByHash(label));
+    const backgroundColors = labels.map((label,index) => getColorByHash(label,index));
 
     const data = {
         labels: labels,
@@ -68,8 +68,7 @@ const renderPieChart = async () => {
     });
 };
 
-const getColorByHash = (label) => {
-    const hash = Array.from(label).reduce((acc, char) => acc + char.charCodeAt(0), 0);
+const getColorByHash = (label,index) => {
     const colors = [
         'rgba(255, 99, 132, 1)',
         'rgba(54, 162, 235, 1)',
@@ -78,7 +77,7 @@ const getColorByHash = (label) => {
         'rgba(153, 102, 255, 1)',
         'rgba(255, 159, 64, 1)'
     ];
-    return colors[hash % colors.length];
+    return colors[index % colors.length];
 };
 
 const getDatabase = async () => {
