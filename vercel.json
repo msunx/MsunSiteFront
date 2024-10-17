@@ -1,21 +1,8 @@
 {
-    "headers": [
+    "crons": [
         {
-            "source": "/(.*)",
-            "headers": [
-                {
-                    "key": "Access-Control-Allow-Origin",
-                    "value": "*"
-                },
-                {
-                    "key": "Access-Control-Allow-Headers",
-                    "value": "content-type"
-                },
-                {
-                    "key": "Access-Control-Allow-Methods",
-                    "value": "DELETE,PUT,POST,GET,OPTIONS"
-                }
-            ]
+            "path": "/api/cron_create_task",
+            "schedule": "*/30 * * * * *"
         }
     ]
 }
