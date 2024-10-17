@@ -6,6 +6,7 @@ import ChartComponent from './components/ChartComponent.vue';
 import HelloWorld from './components/HelloWorld.vue';
 import Daka from './components/Daka.vue';
 import Countdown from './components/Countdown.vue';
+import ChartPie from './components/ChartPie.vue';
 
 const routes = [
     {
@@ -24,6 +25,10 @@ const routes = [
     {
         path: '/notion/countdown',
         component: Countdown
+    },
+    {
+        path: '/notion/pie',
+        component: ChartPie
     }
 ];
 
