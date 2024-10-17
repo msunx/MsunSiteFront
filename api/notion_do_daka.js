@@ -2,7 +2,10 @@ import { Client } from '@notionhq/client';
 const notion = new Client({ auth: process.env.NOTION_API_KEY });
 
 export async function POST(request) {
-    const { id, title, date, isActivate } = await request.json();
+    const { id, title, date, isActivate, auth } = await request.json();
+    if (!check(auth, id)) {
+        return new Response(JSON.stringify(errorResult()));
+    }
     console.log(date, isActivate);
 
     try {
@@ -59,10 +62,25 @@ async function updateDakaData(id, record) {
     });
 }
 
+function check(auth, id) {
+    if (auth === process.env.AUTH_SECRET && id !== null) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 function buildResult(response) {
     return {
         "success": true,
         "code": 200,
         "data": response,
+    }
+}
+
+function errorResult() {
+    return {
+        "success": false,
+        "code": 404
     }
 }

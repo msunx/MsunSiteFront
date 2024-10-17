@@ -33,6 +33,10 @@ export default {
         id: {
             type: String,
             required: true
+        },
+        auth: {
+            type: String,
+            required: true
         }
     },
     data() {
@@ -49,7 +53,7 @@ export default {
     methods: {
         async fetchDakaData() {
             try {
-                const response = await fetch(`/api/notion_daka?title=${this.title}&id=${this.id}`);
+                const response = await fetch(`/api/notion_daka?title=${this.title}&id=${this.id}&auth=${this.auth}`);
                 if (!response.ok) {
                     throw new Error('网络响应不正常');
                 }
@@ -93,7 +97,8 @@ export default {
                         date: dateStr,
                         title: this.title,
                         id: this.id,
-                        isActivate: isActive
+                        isActivate: isActive,
+                        auth: this.auth
                     }),
                 });
             } catch (error) {

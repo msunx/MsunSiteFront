@@ -20,7 +20,7 @@ const routes = [
     {
         path: '/notion/daka',
         component: Daka,
-        props: route => ({ title: route.query.title, ip: route.query.ip, id: route.query.id })
+        props: route => ({ title: route.query.title, ip: route.query.ip, id: route.query.id, auth: route.query.auth })
     },
     {
         path: '/notion/countdown',

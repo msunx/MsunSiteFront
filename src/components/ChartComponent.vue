@@ -16,6 +16,7 @@ const id = urlParams.get('id');
 const x = urlParams.get('x');
 const y = urlParams.get('y');
 const title = urlParams.get('title');
+const auth = urlParams.get('auth');
 
 const renderChart = async () => {
     const databaseData = await getDatabase();
@@ -85,7 +86,7 @@ const getColorByHash = (title) => {
 
 const getDatabase = async () => {
     try {
-        const response = await fetch(`/api/notion_chart?id=${id}&x=${x}&y=${y}`);
+        const response = await fetch(`/api/notion_chart?id=${id}&x=${x}&y=${y}&auth=${auth}`);
         if (!response.ok) {
             throw new Error('Network response was not ok');
         }

@@ -1,6 +1,9 @@
 import { Client } from '@notionhq/client';
 
 export async function GET(request) {
+    if (!check(request)) {
+        return new Response(JSON.stringify(errorResult()));
+    }
     const url = new URL(request.url);
     const id = url.searchParams.get('id');
     const notion = new Client({ auth: process.env.NOTION_API_KEY });
@@ -43,10 +46,28 @@ function getChartData(response) {
     return { labels: sortedLabels, data: sortedData };
 }
 
+function check(request) {
+    const url = new URL(request.url);
+    const auth = url.searchParams.get('auth');
+    const id = url.searchParams.get('id');
+    if (auth === process.env.AUTH_SECRET && id !== null) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
 function buildResult(response) {
     return {
         "success": true,
         "code": 200,
         "data": response,
+    }
+}
+
+function errorResult() {
+    return {
+        "success": false,
+        "code": 404
     }
 }

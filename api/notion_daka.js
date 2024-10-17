@@ -4,6 +4,10 @@ export async function GET(request) {
     const url = new URL(request.url);
     const id = url.searchParams.get('id');
     const title = url.searchParams.get('title');
+    const auth = url.searchParams.get('auth');
+    if (!check(auth, id)) {
+        return new Response(JSON.stringify(errorResult()));
+    }
     const notion = new Client({ auth: process.env.NOTION_API_KEY });
 
     try {
@@ -25,11 +29,25 @@ function getDakaData(response, title) {
         }
     }
 }
+function check(auth, id) {
+    if (auth === process.env.AUTH_SECRET && id !== null) {
+        return true;
+    } else {
+        return false;
+    }
+}
 
 function buildResult(response) {
     return {
         "success": true,
         "code": 200,
         "data": response,
+    }
+}
+
+function errorResult() {
+    return {
+        "success": false,
+        "code": 404
     }
 }
