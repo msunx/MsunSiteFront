@@ -7,7 +7,7 @@ import HelloWorld from './components/HelloWorld.vue';
 import Daka from './components/Daka.vue';
 import Countdown from './components/Countdown.vue';
 import ChartPie from './components/ChartPie.vue';
-
+import ChartBar from './components/ChartBar.vue';
 const routes = [
     {
         path: '/',
@@ -29,6 +29,10 @@ const routes = [
     {
         path: '/notion/pie',
         component: ChartPie
+    },
+    {
+        path: '/notion/bar',
+        component: ChartBar
     }
 ];
 
