@@ -20,8 +20,6 @@ function getChartData(response) {
     const labels = [];
     const data = [];
     const results = response.results[0];
-    const total = results.properties['综合'].formula.number;
-    console.log(total);
 
     for (const [key, value] of Object.entries(results.properties)) {
         if (key !== '综合' && key !== '日期' && value.type === 'number') {

@@ -55,14 +55,14 @@ const renderPieChart = async () => {
             scales: { // 添加坐标轴配置
                 x: {
                     title: {
-                        display: true,
+                        display: false,
                         text: '类别'
                     }
                 },
                 y: {
                     beginAtZero: true,
                     title: {
-                        display: true,
+                        display: false,
                         text: '数量'
                     }
                 }
