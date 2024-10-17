@@ -7,7 +7,7 @@
     <h1>
       <img src="/favicon.svg" alt="icon" class="icon" />
       <span class="title">
-        MSun<span class="highlight">'</span>s Wor<span class="highlight">l</span>d..
+        MSun<span class="highlight">'</span>s Wor<span class="highlight">l</span>d.
       </span> 
     </h1>
   </div>
