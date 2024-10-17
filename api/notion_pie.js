@@ -32,7 +32,15 @@ function getChartData(response) {
         }
     }
 
-    return { labels, data };
+    // 将 labels 和 data 结合在一起进行排序
+    const combined = labels.map((label, index) => ({ label, number: data[index] }));
+    combined.sort((a, b) => b.number - a.number);
+
+    // 分离排序后的 labels 和 data
+    const sortedLabels = combined.map(item => item.label);
+    const sortedData = combined.map(item => item.number);
+
+    return { labels: sortedLabels, data: sortedData };
 }
 
 function buildResult(response) {
