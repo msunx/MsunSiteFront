@@ -32,6 +32,7 @@ function checkNeedCreateTask(config) {
     console.log('config', config)
     if (config.type === 'day') {
         const now = new Date()
+        now.setHours(now.getHours() + 12);
         const nowStr = (now.getMonth() + 1) + '-' + now.getDate()
         console.log('nowStr', nowStr)
         console.log('config.value', config.value)
