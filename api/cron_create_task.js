@@ -40,7 +40,7 @@ async function createTask() {
             },
             "日期": {
                 "date": {
-                    "start": new Date().toISOString().split('T')[0] // 获取当前日期
+                    "start": new Date().toISOString().split('T')[0] 
                 }
             },
             "标签": {
@@ -50,5 +50,4 @@ async function createTask() {
             }
         }
     });
-    console.log(response);
 }
