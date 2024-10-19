@@ -43,6 +43,8 @@ function checkNeedCreateTask(config) {
 
 async function doCreateTask(title, tag) {
     console.log('验证通过了xxxx')
+    const now = new Date();
+    now.setHours(now.getHours() + 12);
     const response = await notion.pages.create({
         "icon": {
             "type": "emoji",
@@ -64,7 +66,7 @@ async function doCreateTask(title, tag) {
             },
             "日期": {
                 "date": {
-                    "start": new Date().toISOString().split('T')[0]
+                    "start": now.toISOString().split('T')[0]
                 }
             },
             "标签": {
