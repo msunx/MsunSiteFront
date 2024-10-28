@@ -4,13 +4,13 @@ const notion = new Client({ auth: process.env.NOTION_API_KEY });
 
 export async function GET(request) {
     console.log('开始创建任务')
-    // const authHeader = request.headers.get('authorization');
-    // if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
-    //     console.log('权限校验失败')
-    //     return new Response('Unauthorized', {
-    //         status: 401,
-    //     });
-    // }
+    const authHeader = request.headers.get('authorization');
+    if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
+        console.log('权限校验失败')
+        return new Response('Unauthorized', {
+            status: 401,
+        });
+    }
     await createTask()
     return Response.json({ success: true });
 }
