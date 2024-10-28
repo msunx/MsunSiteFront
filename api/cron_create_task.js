@@ -4,13 +4,13 @@ const notion = new Client({ auth: process.env.NOTION_API_KEY });
 
 export async function GET(request) {
     console.log('开始创建任务')
-    const authHeader = request.headers.get('authorization');
-    if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
-        console.log('权限校验失败')
-        return new Response('Unauthorized', {
-            status: 401,
-        });
-    }
+    // const authHeader = request.headers.get('authorization');
+    // if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
+    //     console.log('权限校验失败')
+    //     return new Response('Unauthorized', {
+    //         status: 401,
+    //     });
+    // }
     await createTask()
     return Response.json({ success: true });
 }
@@ -28,13 +28,19 @@ async function createTask() {
 
 function checkNeedCreateTask(config) {
     console.log('config', config)
+    const now = new Date()
+    now.setHours(now.getHours() + 12);
     if (config.type === 'day') {
-        const now = new Date()
-        now.setHours(now.getHours() + 12);
         const nowStr = (now.getMonth() + 1) + '-' + now.getDate()
-        console.log('nowStr', nowStr)
-        console.log('config.value', config.value)
         return config.value === nowStr
+    }
+    if (config.type === 'weekly') {
+        const nowDay = now.getDay()
+        return config.value === nowDay
+    }
+    if (config.type === 'monthly') {
+        const nowDay = now.getDate()
+        return config.value === nowDay
     }
     return false
 }
