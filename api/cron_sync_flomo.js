@@ -144,8 +144,11 @@ async function format_memo_list(authorization, memo_list) {
         if (memo.deleted_at !== null) continue;
         if (memo.tags.includes('已同步')) continue;
         if (memo.tags.includes('TODO')) {
-            console.log('memo', memo)
             await sync_todo_to_notion(memo);
+            await update_memo(authorization, memo);
+        }
+        if (memo.tags.includes('灵感')) {
+            await sync_idea_to_notion(memo);
             await update_memo(authorization, memo);
         }
     }
@@ -173,6 +176,64 @@ async function sync_todo_to_notion(memo) {
         },
         "properties": {
             "事项": {
+                "title": [
+                    {
+                        "text": {
+                            "content": title
+                        }
+                    }
+                ]
+            },
+            "日期": {
+                "date": {
+                    "start": now.toISOString().split('T')[0]
+                }
+            },
+            "标签": {
+                "select": {
+                    "name": "flomo"
+                }
+            }
+        }
+    }
+    if (otherContent != '') {
+        params['children'] = [
+            {
+                "object": "block",
+                "paragraph": {
+                    "rich_text": [
+                        {
+                            "text": {
+                                "content": otherContent
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+    await notion.pages.create(params);
+}
+
+
+async function sync_idea_to_notion(memo) {
+    const now = new Date()
+    now.setHours(now.getHours() + 12);
+    const content = htmlToTextConvert(memo.content);
+    const firstLine = content.split('\n')[0];
+    const title = removeHashtags(firstLine);
+    const otherContent = content.slice(firstLine.length).trim();
+    const params = {
+        "icon": {
+            "type": "emoji",
+            "emoji": "🫐"
+        },
+        "parent": {
+            "type": "database_id",
+            "database_id": process.env.CRON_IDEA_DATABASE
+        },
+        "properties": {
+            "灵感": {
                 "title": [
                     {
                         "text": {
