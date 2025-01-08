@@ -122,7 +122,7 @@ export default {
             const oneDay = 1000 * 60 * 60 * 24;
             const daysUntilNextTerm = Math.ceil((nextTerm.date - today) / oneDay);
 
-            console.log(previousTerm.name, nextTerm.name, daysUntilNextTerm);
+            //console.log(previousTerm.name, nextTerm.name, daysUntilNextTerm);
             this.previousSolarTerm = previousTerm.name;
             this.daysUntilNextTerm = daysUntilNextTerm;
         }
@@ -136,8 +136,8 @@ export default {
 
 <style scoped>
 .countdown-container {
-    width: 80vw;
-    height: 80vw;
+    width: 100vw;
+    height: 100vw;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -149,7 +149,7 @@ export default {
     color: #ffffff;
     font-family: 'Roboto', sans-serif;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    margin: 10vw;
+    margin: 0;
 }
 
 
