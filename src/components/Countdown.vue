@@ -1,6 +1,6 @@
 <template>
     <div class="countdown-container">
-        <p class="countdown-title">{{ previousSolarTerm }}<span class="countdown-title-sub">| 第一个节气计划</span></p>
+        <p class="countdown-title">{{ previousSolarTerm }}<span class="countdown-title-sub">| 第<span class="highlight">一</span>个节气计划</span></p>
         <div class="countdown-days">
             <span class="days-count">{{ daysUntilNextTerm }}</span>
             <span class="days-label">Days</span>
@@ -154,7 +154,7 @@ export default {
 
 
 .countdown-title {
-    font-size: 10vw;
+    font-size: 11vw;
     margin-bottom: 0;
     padding: 0;
     text-align: left;
@@ -162,7 +162,7 @@ export default {
 }
 
 .countdown-title-sub {
-    font-size: 2vw;
+    font-size: 2.8vw;
     margin-left: 1vw;
     color: #d9dace;
 }
@@ -174,7 +174,7 @@ export default {
 }
 
 .days-count {
-    font-size: 5vw;
+    font-size: 6vw;
     font-weight: bold;
     margin-right: 1vw;
     transition: color 0.3s ease;
@@ -184,14 +184,14 @@ export default {
 .days-label {
     font-size: 3vw;
     font-weight: bold;
-    margin-bottom: 1vw;
+    margin-bottom: 1.8vw;
 }
 
 .countdown-content {
     display: flex;
     align-items: flex-start;
     margin-left: 2.8vw;
-    font-size: 2vw;
+    font-size: 3vw;
     /* 确保内容顶部对齐 */
 }
 
@@ -206,5 +206,9 @@ export default {
     font-size: 4vw;
     font-weight: bold;
     color: #ffffff;
+}
+
+.countdown-title-sub .highlight {
+    color: #ffdd57;
 }
 </style>
