@@ -24,7 +24,10 @@
                 </li>
             </ul>
         </div>
-        <div class="countdown-topic">多巴胺禁断</div>
+        <div class="countdown-topic">
+            <div>多巴胺禁断</div>
+            <div class="countdown-topic-date">{{ currentDate }}</div>
+        </div>
     </div>
 </template>
 
@@ -36,7 +39,8 @@ export default {
             // title: '',
             previousSolarTerm: '',
             nextSolarTerm: '',
-            daysUntilNextTerm: 0
+            daysUntilNextTerm: 0,
+            currentDate: ''
         };
     },
     computed: {
@@ -125,11 +129,18 @@ export default {
             //console.log(previousTerm.name, nextTerm.name, daysUntilNextTerm);
             this.previousSolarTerm = previousTerm.name;
             this.daysUntilNextTerm = daysUntilNextTerm;
+        },
+        formatDate(date) {
+            const year = date.getFullYear();
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const day = String(date.getDate()).padStart(2, '0');
+            return `${year}/${month}/${day}`;
         }
     },
     mounted() {
         this.getUrlParams();
         this.getJq();
+        this.currentDate = this.formatDate(new Date());
     },
 };
 </script>
@@ -201,11 +212,16 @@ export default {
 
 .countdown-topic {
     position: absolute;
-    bottom: 10px;
+    bottom: 5px;
     right: 10px;
     font-size: 4vw;
     font-weight: bold;
     color: #ffffff;
+}
+
+.countdown-topic-date {
+    font-size: 2.5vw;
+    margin-left: 5.5vw;
 }
 
 .countdown-title-sub .highlight {
